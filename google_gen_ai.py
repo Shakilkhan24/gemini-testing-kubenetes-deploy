@@ -5,9 +5,6 @@ import io
 import pathlib
 import os
 
-# Streamlit app title
-st.title("Google Generative AI App")
-
 # Read the Google API key from environment variable
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
@@ -16,6 +13,9 @@ with st.sidebar:
     st.header("API Key")
     if not GOOGLE_API_KEY:
         GOOGLE_API_KEY = st.text_input("Enter your Google API key:", type="password")
+    
+    # Add a "Get API Key" link below the API key input field
+    st.markdown("[Get API Key](https://aistudio.google.com/app/apikey)")
 
 # Main app functionality
 if GOOGLE_API_KEY:
@@ -25,12 +25,18 @@ if GOOGLE_API_KEY:
     st.header("Choose Generation Type")
     generation_type = st.radio(
         "Select the type of generation:",
-        ["Text Generation", "Image-Based Generation"]
+        ["Text to Text", "Ask about Image"]
     )
 
-    if generation_type == "Text Generation":
+    # Dynamically change the title based on the selected category
+    if generation_type == "Text to Text":
+        st.title("Text Generation...")
+    elif generation_type == "Ask about Image":
+        st.title("Ask anything about a Image")
+
+    if generation_type == "Text to Text":
         st.subheader("Text Generation")
-        user_input = st.text_area("Enter your text prompt (e.g., 'What's the largest planet in our solar system?'):")
+        user_input = st.text_area("What do you want to know?'):", height=100)
 
         if st.button("Generate Text"):
             if user_input.strip() == "":
@@ -48,10 +54,10 @@ if GOOGLE_API_KEY:
                     except Exception as e:
                         st.error(f"An error occurred: {e}")
 
-    elif generation_type == "Image-Based Generation":
-        st.subheader("Image-Based Generation")
+    elif generation_type == "Ask about Image":
+        st.subheader("...Anything about IMAGE...")
         uploaded_file = st.file_uploader("Upload an image", type=["png", "jpg", "jpeg"])
-        user_prompt = st.text_area("Enter your prompt for the image (e.g., 'Write a short and engaging blog post based on this picture.'):")
+        user_prompt = st.text_area("Any query about the Image? Tell me.'):", height=100)
 
         if st.button("Generate from Image"):
             if not uploaded_file or not user_prompt:
