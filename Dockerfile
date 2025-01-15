@@ -15,11 +15,10 @@ RUN pip3 install --upgrade pip && \
 COPY google_gen_ai.py .
 
 # Set the environment variable for the Google API key
-ENV GOOGLE_API_KEY=api_key
+ENV GOOGLE_API_KEY=your_google_api_key_here
 
 # Expose the port that Streamlit will run on
 EXPOSE 8501
 
-# Command to run the Streamlit application
-CMD ["streamlit", "run", "google_gen_ai.py", "--server.port=8501", "--server.address=0.0.0.0"]
-
+# Command to run the Streamlit application (bind to localhost only)
+CMD ["streamlit", "run", "google_gen_ai.py", "--server.port=8501", "--server.address=127.0.0.1"]
