@@ -23,3 +23,8 @@ service:
   targetPort: 8501
   nodePort: 30001  # Optional, Kubernetes will assign if omitted
 
+ingress:
+  enabled: true
+  host: geminiapp.com
+  # i need to set up nginx first, then dns, tls and others
+  # this is just a initial setup
