@@ -1,0 +1,3 @@
+docker run -d -p 8501:8501 -e GOOGLE_API_KEY=provide_the_key --name f_con2 final
+
+# the port should be working...
