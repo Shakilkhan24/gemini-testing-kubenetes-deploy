@@ -21,4 +21,4 @@ ENV GOOGLE_API_KEY=your_google_api_key_here
 EXPOSE 8501
 
 # Command to run the Streamlit application (bind to localhost only)
-CMD ["streamlit", "run", "google_gen_ai.py", "--server.port=8501", "--server.address=127.0.0.1"]
+CMD ["streamlit", "run", "google_gen_ai.py", "--server.port=8501", "--server.address=0.0.0.0"]
