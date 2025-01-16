@@ -3,6 +3,8 @@ kind: ConfigMap
 metadata:
   name: google-api-key-config
   labels:
-    app: gemini
+    app: {{ .Values.labels.app }}
+    environment: {{ .Values.labels.environment }}
+    
 data:
   GOOGLE_API_KEY: {{ .Values.data.GOOGLE_API_KEY }}

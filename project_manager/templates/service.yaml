@@ -3,12 +3,14 @@ kind: Service
 metadata:
   name: gemini-service
   labels:
-    app: gemini
+    app: {{ .Values.labels.app }}
+    environment: {{ .Values.labels.environment }}
+
 spec:
-  type: NodePort
+  type: {{ .Values.service.type }}
   ports:
-    - port: 8501
-      targetPort: 8501
-      nodePort: 30001  # Optional, Kubernetes will assign if omitted
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+      nodePort: {{ .Values.service.nodePort }}  # Optional, Kubernetes will assign if omitted
   selector:
-    app: gemini
+    app: {{ .Values.labels.app }}

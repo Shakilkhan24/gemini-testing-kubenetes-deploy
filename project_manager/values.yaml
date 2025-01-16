@@ -1,2 +1,25 @@
+# Labels for various resources
+labels:
+  app: gemini
+  environment: production  # Example: you can add environment labels
+
+
+# config map GOOGLE_API_KEY to provide... 
+
 data:
-  GOOGLE_API_KEY: "Put the GOOGLE_API_KEY here"
+  GOOGLE_API_KEY: "your-google-api-key-here"  
+
+# Deployment settings
+replicaCount: 2
+image:
+  repository: shakilkhan24/gemini_trial
+  tag: latest
+  pullPolicy: Always  # Set to Always or IfNotPresent based on your use case
+
+# Service settings
+service:
+  type: NodePort
+  port: 8501
+  targetPort: 8501
+  nodePort: 30001  # Optional, Kubernetes will assign if omitted
+

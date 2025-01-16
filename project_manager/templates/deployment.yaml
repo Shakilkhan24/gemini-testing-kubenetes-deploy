@@ -3,22 +3,26 @@ kind: Deployment
 metadata:
   name: gemini-deployment
   labels:
-    app: gemini
+    app: {{ .Values.labels.app }}
+    environment: {{ .Values.labels.environment }}
+    
 spec:
-  replicas: 2
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: gemini
+      app: {{ .Values.labels.app }}
   template:
     metadata:
       labels:
-        app: gemini
+        app: {{ .Values.labels.app }}
+        environment: {{ .Values.labels.environment }}
     spec:
       containers:
         - name: gemini-container
-          image: shakilkhan24/gemini_trial:latest
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
-            - containerPort: 8501
+            - containerPort: {{ .Values.service.port }}
           env:
             - name: GOOGLE_API_KEY
               valueFrom:
