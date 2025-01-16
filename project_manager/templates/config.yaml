@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: google-api-key-config
+  labels:
+    app: gemini
+data:
+  GOOGLE_API_KEY: {{ .Values.data.GOOGLE_API_KEY }}

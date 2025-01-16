@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gemini-deployment
+  labels:
+    app: gemini
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gemini
+  template:
+    metadata:
+      labels:
+        app: gemini
+    spec:
+      containers:
+        - name: gemini-container
+          image: shakilkhan24/gemini_trial:latest
+          ports:
+            - containerPort: 8501
+          env:
+            - name: GOOGLE_API_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: google-api-key-config
+                  key: GOOGLE_API_KEY
