@@ -9,3 +9,22 @@ dependencies:
   - name: grafana
     version: "6.40.0"  # Replace with the desired version
     repository: "https://grafana.github.io/helm-charts"
+
+
+
+# Add and configure [Be clear what purposes you are on adding this Addons]
+
+
+# [NOTE]
+# ----------------------------------------------------------#
+# ``````````````--https://landscape.cncf.io/--```````````````
+
+
+# Add more helm repos here for different use cases
+#    ___Networking plugins like Calico 
+#    ___Traefik
+#    ___Service Mesh like Istio 
+#    ___Fluentd, Jaeger and others
+
+#    ___And much more
+#-----------------------------------------------------------#    
