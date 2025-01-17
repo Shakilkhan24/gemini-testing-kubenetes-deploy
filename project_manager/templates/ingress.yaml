@@ -1,3 +1,12 @@
+# DNS, TLS, HOST url setups, HTTP/HTTPS , IP , and others 
+# I need to learn this before directly using Ingress
+
+
+# .......Next.......
+# apiVersion:
+# kind: API GATEWAY 
+
+
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
