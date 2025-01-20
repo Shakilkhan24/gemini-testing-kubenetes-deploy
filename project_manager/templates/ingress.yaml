@@ -19,3 +19,7 @@ spec:
                 name: gemini-service
                 port:
                   number: {{ .Values.service.port }}
+
+# ________________________________________________________________#
+# Think about to use ingress-nginx as api-gateway
+# or kong , Istio , traefik or something ...
