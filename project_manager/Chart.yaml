@@ -4,11 +4,14 @@ description: A Helm chart for my Kubernetes project
 version: 0.1.0
 dependencies:
   - name: prometheus
-    version: "15.0.0"  # Replace with the desired version
+    version: "3.1.0"  # Replace with the desired version
     repository: "https://prometheus-community.github.io/helm-charts"
   - name: grafana
-    version: "6.40.0"  # Replace with the desired version
+    version: "11.4.0"  # Replace with the desired version
     repository: "https://grafana.github.io/helm-charts"
+  - name: loki
+    version:"3.3.2"
+    repository: "https://grafana.github.io/helm-charts"  
 
 
 
