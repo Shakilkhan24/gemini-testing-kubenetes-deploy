@@ -5,5 +5,8 @@ dependencies:
 - name: grafana
   repository: https://grafana.github.io/helm-charts
   version: 6.50.0
-digest: sha256:2e28027f9d2f015643ec7095abc7a4a1daa6afd47b03ece0fc36d12956ce8afc
-generated: "2025-01-20T14:50:54.9161823+06:00"
+- name: ingress-nginx
+  repository: https://kubernetes.github.io/ingress-nginx
+  version: 4.12.0
+digest: sha256:758c01c1daf136fe4362102816d5e8393d4523d8e43966188897f5b6a1969c76
+generated: "2025-01-20T16:17:40.7522652+06:00"
