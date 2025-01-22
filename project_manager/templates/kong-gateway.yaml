@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: kong-gateway
+  annotations:
+    konghq.com/strip-path: "true"       # it sets up kong settings 
+    kubernetes.io/ingress.class: "kong"
+spec:
+  # for tls setup , you need to follow this... 
+
+  # tls:
+  # - hosts:
+  #       - {{ .Values.ingress.host }}
+  #     secretName: {{ .Values.ingress.tlsSecret }}
+  rules:
+    - host: {{ .Values.ingress.host }}
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: gemini-service
+                port:
+                  number: {{ .Values.service.port }}
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: rate-limiting
+spec:
+  plugin: rate-limiting
+  config:
+    minute: 100    # 100 requests per minute 
+    policy: local
+---
+apiVersion: configuration.konghq.com/v1
+kind: KongIngress
+metadata:
+  name: kong-gateway-config
+spec:
+  proxy:
+    connect_timeout: 10000     # 10s of timeouts 
+    read_timeout: 10000
+    write_timeout: 10000
