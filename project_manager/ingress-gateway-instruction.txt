@@ -1,0 +1,14 @@
+Instrucion for both Ingress and KONG Gateway
+
+
+Since Minikube doesn't provide a real DNS, you need to map the hostname (gemini-app.local) 
+to the Minikube IP address. 
+
+Update Your /etc/hosts File
+  - minikube ssh
+  - cd etc/
+  - vim hosts
+    - write <ip> gemini-app.local 
+
+
+You can now access your application at http://gemini-app.local
