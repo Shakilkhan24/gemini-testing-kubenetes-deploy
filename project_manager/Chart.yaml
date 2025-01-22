@@ -12,7 +12,9 @@ dependencies:
   - name: ingress-nginx
     version: "4.12.0"  # Replace with the desired version
     repository: "https://kubernetes.github.io/ingress-nginx"
-
+  - name: kong
+    version: "2.45.0"
+    repository: "https://charts.konghq.com"
 # ---------#
 # Since minikube is a local development env, i won't have a public domain registrar.
 # Remember how to set up, that's it, probably you would use later... 
