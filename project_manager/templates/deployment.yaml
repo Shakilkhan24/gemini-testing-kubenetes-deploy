@@ -23,6 +23,20 @@ spec:
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - containerPort: {{ .Values.service.port }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: {{ .Values.probes.initialDelay }}
+            periodSeconds: {{ .Values.probes.period }}
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: {{ .Values.service.port }}
+            initialDelaySeconds: {{ .Values.probes.initialDelay }}
+            periodSeconds: {{ .Values.probes.period }}
           env:
             - name: GOOGLE_API_KEY
               valueFrom:
