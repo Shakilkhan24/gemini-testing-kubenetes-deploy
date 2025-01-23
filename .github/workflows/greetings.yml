@@ -1,0 +1,29 @@
+name: Greet Contributors and Forkers
+
+on:
+  pull_request:
+    types: [opened]
+  push:
+    branches:
+      - main
+      - 'feature/**'
+  fork:
+    types: [created]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Greet Pull Request or Fork
+      uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: >
+          🎉 Thank you for opening a pull request! We appreciate your effort and
+          contribution to this project. The team will review it soon.
+        pr-message: >
+          🚀 Thank you for contributing! We're excited to review your changes and collaborate with you.
+        fork-message: >
+          🎉 Thank you for forking this repository! We’re thrilled to have you exploring the project. 
+          Feel free to contribute and let us know if you need help.
