@@ -39,3 +39,16 @@ ingress:
 # API Key
 data:
   GOOGLE_API_KEY: "your-google-api-key-here"
+
+
+
+# ---------------------------------------------------------------------------- #
+# Since you have knowledge about the complete setup of hlem projects
+# From now , you would use the by default values.yaml keeping the by default resources same or little modified
+
+
+# It would reduce Time.  
+
+
+# ''''''''''''''''''
+# Add additional resources in templates and modify the values.yaml .
