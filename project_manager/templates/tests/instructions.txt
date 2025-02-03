@@ -1,0 +1,11 @@
+
+## Test Requirements
+- Kubernetes cluster running
+- Helm chart installed
+- Kong Gateway configured
+- Health endpoints implemented
+
+## Adding New Tests
+1. Create new YAML file in tests/
+2. Use helm.sh/hook: test annotation
+3. Follow naming convention: test-<component>.yaml

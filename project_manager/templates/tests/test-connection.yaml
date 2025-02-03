@@ -1,0 +1,7 @@
+# Basic Connectivity Test (test-connection.yaml)
+#   1.Tests if the service is reachable
+#   2.Verifies basic network connectivity
+#   3.Checks health endpoint response
+#   4.Should be lightweight and quick
+
+#   and more.

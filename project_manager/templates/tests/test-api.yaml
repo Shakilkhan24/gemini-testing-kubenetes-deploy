@@ -1,0 +1,7 @@
+# API Test (test-api.yaml)
+#   1.Tests core API functionality
+#   2.Verifies rate limiting (Kong)
+#   3.Checks response codes
+#   4.Tests API endpoints
+
+#   and more.
